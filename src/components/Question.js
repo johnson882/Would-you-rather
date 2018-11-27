@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 class Question extends Component {
 
-  render() {console.log(this.props)
+  render() {
   //  const { Quesion } = this.props
 
 
@@ -15,7 +15,11 @@ class Question extends Component {
     //console.log(optionOne)
     return (
         <div className = 'question'>
-Here is a question!
+<span>Question: {optionOne.text}? or {optionTwo.text}?</span>
+<br/>
+by: {author}
+<br/>
+<br/>
         </div>
     )
   }
