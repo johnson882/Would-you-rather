@@ -1,8 +1,20 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import {saveQuestionAnswer} from '../utils/api'
+import {handleQuestionAnswer} from '../actions/questions'
+
 
 class Question extends Component {
+  handleQuestionAnswer = (e) => {
+    e.preventDefault()
+
+    const {dispatch, authUser, question} = this.props
+    console.log("test")
+    dispatch(handleQuestionAnswer({
+      id: question.id,
+      authUser,
+      vote: question.vote
+    }))
+  }
 
   render() {
   //  const { Quesion } = this.props
