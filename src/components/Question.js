@@ -28,7 +28,10 @@ class Question extends Component {
     //console.log(optionOne)
     return (
         <div className = 'question'>
-<span>Question: {optionOne.text}? or {optionTwo.text}?</span>
+<span>Question: {optionOne.text}?<input type="radio" name={id}></input> or {optionTwo.text}?
+<input type="radio" name={id}></input></span>
+<br/>
+<button>Submit</button>
 <br/>
 by: {author}
 <br/>
