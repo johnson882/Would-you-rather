@@ -4,16 +4,31 @@ import {handleQuestionAnswer} from '../actions/questions'
 
 
 class Question extends Component {
+  constructor(props) {
+      super(props);
+      this.state = { };
+    }
+  }
+
+  handleOptionChange = (changeE) =>{
+    console.log("Selected option: ",changeE.target.value)
+    this.setState({
+      selectedOption: changeE.target.value
+    }
+    )
+  }
+
   handleQuestionAnswer = (e) => {
     e.preventDefault()
 
     const {dispatch, authUser, question} = this.props
-    console.log("test")
+    console.log("you have selected Option: ", this.state.selectedOption)
+    /*
     dispatch(handleQuestionAnswer({
       id: question.id,
       authUser,
       vote: question.vote
-    }))
+    })) */
   }
 
   render() {
@@ -24,19 +39,22 @@ class Question extends Component {
       author, id, optionOne, optionTwo, timestamp
     } = this.props.question
 
-    console.log(optionOne)
+    //console.log(optionOne)
     //console.log(optionOne)
     return (
-        <div className = 'question'>
-<span>Question: {optionOne.text}?<input type="radio" name={id}></input> or {optionTwo.text}?
-<input type="radio" name={id}></input></span>
-<br/>
-<button>Submit</button>
-<br/>
-by: {author}
-<br/>
-<br/>
-        </div>
+
+<div className = 'question'>
+  <form onSubmit={this.handleQuestionAnswer}>
+    <span>Question: {optionOne.text}?<input type="radio" name={id}value={this.state.selectedOption === 'optionOne'} onChange={this.handleOptionChange}></input> or {optionTwo.text}?
+      <input type="radio" name={id} value={this.state.selectedOption==='optionTwo'} onChange={this.handleOptionChange}></input></span>
+    <br/>
+    <button type="submit">Submit</button>
+    <br/>
+    by: {author}
+    <br/>
+    <br/>
+  </form>
+</div>
     )
   }
 }
