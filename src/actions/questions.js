@@ -26,7 +26,7 @@ export function handleQuestionAnswer(info){
     return(saveQuestionAnswer(info)).catch((e) => {
       console.log("error in handleQuestionAnswer:", e)
       dispatch(save_question_answer(info))
-      alert("there was an error answering the question, try again")
+      alert('there was an error answering the question, try again')
     })
 
   }
