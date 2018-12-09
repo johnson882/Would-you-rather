@@ -9,21 +9,29 @@ export const RECEIVED_QUESTIONS = 'RECEIVE_QUESTIONS'
   }
 }
 
-export function save_question_answer({id, authUser, vote }){
+export function save_question_answer({ authUser, id, vote }){
+  console.log('Test:', id, authUser, vote)
+
   return{
     type: SAVE_QUESTION_ANSWER,
-    id,
+
     authUser,
+    id,
     vote
   }
 
 }
 
 export function handleQuestionAnswer(info){
+  console.log("info:", info)
+
+
   return(dispatch) => {
     dispatch(save_question_answer(info))
 
-    return(saveQuestionAnswer(info)).catch((e) => {
+    return(saveQuestionAnswer({
+      authedUser: info.authUser, qid: info.id, answer: info.vote
+    })).catch((e) => {
       console.log("error in handleQuestionAnswer:", e)
       dispatch(save_question_answer(info))
       alert('there was an error answering the question, try again')

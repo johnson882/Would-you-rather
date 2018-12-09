@@ -1,6 +1,7 @@
 import {RECEIVED_QUESTIONS, SAVE_QUESTION_ANSWER} from "../actions/questions"
 
 export default function questions(state = {}, action){
+  console.log("action: ", action)
   switch(action.type){
     case RECEIVED_QUESTIONS:
       return{
@@ -16,11 +17,13 @@ export default function questions(state = {}, action){
           [action.vote]:
           {
             ...state[action.id][action.vote],
-            votes: [...state[action.id][action.vote].vote, action.authUser]
-          }
+          votes: state[action.id][action.vote].votes.concat(action.authUser)
+
         }
+        }
+
       }
-      
+
     default: return state
   }
 }

@@ -20,5 +20,6 @@ export function saveQuesions(question){
 }
 
 export function saveQuestionAnswer(question){
+  console.log("api:", question)
   return _saveQuestionAnswer(question)
 }

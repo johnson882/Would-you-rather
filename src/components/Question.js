@@ -6,32 +6,38 @@ import {handleQuestionAnswer} from '../actions/questions'
 class Question extends Component {
   constructor(props) {
       super(props);
-      this.state = { };
+      this.state = {};
     }
-  }
+
 
   handleOptionChange = (changeE) =>{
     console.log("Selected option: ",changeE.target.value)
     this.setState({
       selectedOption: changeE.target.value
     }
-    )
+  )
   }
 
-  handleQuestionAnswer = (e) => {
+  handleQuestionA = (e) => {
     e.preventDefault()
 
     const {dispatch, authUser, question} = this.props
+
+    const vote = this.state.selectedOption;
+
     console.log("you have selected Option: ", this.state.selectedOption)
-    /*
-    dispatch(handleQuestionAnswer({
+    console.log("question id, authUser and question Vote", question.id, authUser, vote)
+
+
+
+   dispatch(handleQuestionAnswer({
       id: question.id,
       authUser,
-      vote: question.vote
-    })) */
+      vote
+    }))
   }
 
-  render() {
+  render(){
   //  const { Quesion } = this.props
 
 
@@ -41,14 +47,12 @@ class Question extends Component {
 
     //console.log(optionOne)
     //console.log(optionOne)
-    return (
-
-=======
+    return(
 
 <div className = 'question'>
-  <form onSubmit={this.handleQuestionAnswer}>
-    <span>Question: {optionOne.text}?<input type="radio" name={id}value={this.state.selectedOption === 'optionOne'} onChange={this.handleOptionChange}></input> or {optionTwo.text}?
-      <input type="radio" name={id} value={this.state.selectedOption==='optionTwo'} onChange={this.handleOptionChange}></input></span>
+  <form onSubmit={this.handleQuestionA}>
+    <span>Question: {optionOne.text}?<input type="radio" name={id} value={'optionOne'} onChange={this.handleOptionChange}></input> or {optionTwo.text}?
+      <input type="radio" name={id} value={'optionTwo'} onChange={this.handleOptionChange}></input></span>
     <br/>
     <button type="submit">Submit</button>
     <br/>
@@ -57,7 +61,7 @@ class Question extends Component {
     <br/>
   </form>
 </div>
->>>>>>> bcafd6da42d29786e936bb71064910f6d3a514c4
+
     )
   }
 }
