@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import '../App.css'
 import Dashboard from './Dashboard';
+import NewQuestion from './NewQuestion'
 
 
 class App extends Component {
@@ -13,8 +14,8 @@ class App extends Component {
     return (
       <div className="App">
         {this.props.loading === true
-        ? null : <Dashboard />}
-      
+        ? null : <Dashboard/> }
+
       </div>
     );
   }
