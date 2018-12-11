@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.props.loading === true
-        ? null : <Dashboard/> }
+        ? null : <NewQuestion/> }
 
       </div>
     );

@@ -24,6 +24,13 @@ export default function questions(state = {}, action){
 
       }
 
+      case ADD_QUESTION:
+      console.log('reached question')
+        return{
+
+          ...state
+        }
+
     default: return state
   }
 }

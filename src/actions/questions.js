@@ -11,12 +11,14 @@ export function addQuestion(question){
   }
 }
 
-export function handleAddQuestion(optionOne, optionTwo){
-  return (dispatch, getState) =>{
-    const {authedUser} = getState()
-
-    return saveQuesions({
-      optionOne, optionTwo, author: authedUser
+export function handleAddQuestion(question){
+  return (dispatch, getState) => {
+    const authedUser = question.authedUser
+    console.log(authedUser)
+    //const timeStamp= Date.now()
+    //console.log(timeStamp)
+    return saveQuesions({type: ADD_QUESTION,
+      optionOne:question.optionOne, optionTwo: question.optionTwo, author: authedUser,
     }).then((question) => dispatch(addQuestion(question)))
   }
 

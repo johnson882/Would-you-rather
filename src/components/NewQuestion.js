@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {handleAddQuestion} from '../actions/questions'
 
 class NewQuestion extends Component{
 
@@ -27,8 +29,11 @@ handleChangeOptionTwo = (e) => {
 handleSubmit = (e) => {
     e.preventDefault()
      const { optionOne, optionTwo } = this.state
+     const {dispatch, authedUser} = this.props
      // todo: Add Tweet to Store
      console.log('New Question: OptionOne: ', optionOne, 'OptionTwo: ', optionTwo)
+     dispatch(handleAddQuestion({optionOne, optionTwo, authedUser}))
+
      this.setState(() => ({
       optionOne,
       optionTwo,
@@ -79,4 +84,4 @@ const {optionOne, optionTwo} = this.state
 
 
 }
-export default NewQuestion
+export default connect()(NewQuestion)
