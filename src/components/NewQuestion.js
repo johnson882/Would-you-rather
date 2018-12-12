@@ -30,6 +30,7 @@ handleSubmit = (e) => {
     e.preventDefault()
      const { optionOne, optionTwo } = this.state
      const {dispatch, authedUser} = this.props
+     console.log(authedUser)
      // todo: Add Tweet to Store
      console.log('New Question: OptionOne: ', optionOne, 'OptionTwo: ', optionTwo)
      dispatch(handleAddQuestion({optionOne, optionTwo, authedUser}))
@@ -84,4 +85,9 @@ const {optionOne, optionTwo} = this.state
 
 
 }
-export default connect()(NewQuestion)
+
+function mapStateToProps(state){
+  return({authedUser: state.authUser})
+}
+
+export default connect(mapStateToProps)(NewQuestion)
