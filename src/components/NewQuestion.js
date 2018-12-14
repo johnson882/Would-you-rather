@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {handleAddQuestion} from '../actions/questions'
-
+//import {AddQuestionUser} from '../actions/AddQuestionUser'
 
 class NewQuestion extends Component{
 
