@@ -1,7 +1,7 @@
 import { getInitialData } from '../utils/api'
 import { receiveUsers } from '../actions/users'
 import { receiveQuestions } from '../actions/questions'
-import {setAuthUser} from '../actions/authorizedUser'
+import {setAuthUser, AddQuestionUser} from '../actions/authorizedUser'
 
 const AUTH_ID = 'tylermcginnis'
 
