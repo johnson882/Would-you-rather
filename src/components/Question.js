@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {handleQuestionAnswer} from '../actions/questions'
+//import {AddQuestionUser} from '../actions/users'
 
 
 class Question extends Component {
