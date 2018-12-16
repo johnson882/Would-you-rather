@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import '../App.css'
 import Dashboard from './Dashboard';
 import NewQuestion from './NewQuestion'
+import Navbar from './Navbar'
 
 
 class App extends Component {
@@ -12,11 +14,20 @@ class App extends Component {
   }
   render() {
     return (
+      <Router>
       <div className="App">
+      <Navbar />
         {this.props.loading === true
-        ? null : <NewQuestion/> }
+        ? null :
+        <div>
+         <Route path='/' exact component={Dashboard} />
+        <Route path='/new' exact component={NewQuestion} />
+        </div>
+
+         }
 
       </div>
+        </Router>
     );
   }
 }
