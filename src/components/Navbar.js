@@ -14,6 +14,11 @@ import { NavLink } from 'react-router-dom'
           New Tweet
         </NavLink>
         </li>
+        <li>
+          <NavLink to='/loggout' activeClassName='active'>
+            Loggout
+          </NavLink>
+          </li>
       </ul>
     </nav>
   )

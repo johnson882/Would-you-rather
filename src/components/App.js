@@ -6,6 +6,8 @@ import '../App.css'
 import Dashboard from './Dashboard';
 import NewQuestion from './NewQuestion'
 import Navbar from './Navbar'
+import Loggin from './Loggin'
+import Loggout from './Loggout'
 
 
 class App extends Component {
@@ -16,14 +18,20 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-      <Navbar />
-        {this.props.loading === true
-        ? null :
-        <div>
-         <Route path='/' exact component={Dashboard} />
-        <Route path='/new' exact component={NewQuestion} />
-        </div>
+{this.props.authUser}
 
+
+        {this.props.authUser === null
+        ?<Loggin/>:
+
+        <div>
+
+         <Navbar />
+         <Route path='/' exact component={Dashboard} />
+         <Route path='/new' exact component={NewQuestion} />
+         <Route path='/loggout' exact component={Loggout} />
+
+        </div>
          }
 
       </div>
@@ -35,7 +43,9 @@ class App extends Component {
 function mapStateToProps({authUser})
 {
   return{
-    loading: authUser === null
+    loading: authUser === null,
+    authUser
+
   }
 }
 

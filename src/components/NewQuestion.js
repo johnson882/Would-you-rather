@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {handleAddQuestion} from '../actions/shared'
 //import {AddQuestionUser} from '../actions/AddQuestionUser'
@@ -8,6 +9,7 @@ class NewQuestion extends Component{
 state = {
   optionOne: ' ',
   optionTwo: ' ',
+  toHome: false,
 
 }
 
@@ -39,13 +41,18 @@ handleSubmit = (e) => {
      this.setState(() => ({
       optionOne,
       optionTwo,
+      toHome: true,
     }))
     console.log(this.state)
   }
 
 render() {
-const {optionOne, optionTwo} = this.state
+const {optionOne, optionTwo, toHome} = this.state
+if (toHome === true) {
+     return <Redirect to='/' />
+   }
   return(
+
     <div>
 
     <h3 className = 'center'> Compose new Question</h3>

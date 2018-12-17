@@ -3,7 +3,7 @@ import { receiveUsers, AddQuestionUser } from '../actions/users'
 import { receiveQuestions, addQuestion } from '../actions/questions'
 import {setAuthUser} from '../actions/authorizedUser'
 
-const AUTH_ID = 'tylermcginnis'
+const AUTH_ID = null
 
 export function handleInitialData () {
   return (dispatch) => {
@@ -15,6 +15,13 @@ export function handleInitialData () {
       })
   }
 }
+
+export function handleChangeAuth(authUserID){
+  return(dispatch) => {
+    dispatch(setAuthUser(authUserID))
+  }
+}
+
 
 export function handleAddQuestion(question){
   return (dispatch, getState) => {
