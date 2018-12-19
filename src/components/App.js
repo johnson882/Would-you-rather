@@ -8,6 +8,7 @@ import NewQuestion from './NewQuestion'
 import Navbar from './Navbar'
 import Loggin from './Loggin'
 import Loggout from './Loggout'
+import Question from './Question'
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
          <Route path='/' exact component={Dashboard} />
          <Route path='/new' exact component={NewQuestion} />
          <Route path='/loggout' exact component={Loggout} />
+         
 
         </div>
          }

@@ -5,6 +5,16 @@ import {Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css';
 
 class Dashboard extends Component {
+
+
+  handleSelectedQuestion = (e) => {
+    const text = e.target.value
+
+    this.setState(() => ({
+      clicked: text
+    }))
+  }
+
   render() {
     console.log(this.props.questionIds)
 const tabStyles = {
@@ -34,7 +44,8 @@ const tabStyles = {
                 {
                   this.props.unanswered.map((id) => (
                  <li key={id}>
-                 <Question id={id} />
+                  <Question id={id}/>
+                 <button type="submit"> Answer Question</button>
                  </li>
                 ))}
                 </ul>
@@ -62,7 +73,7 @@ const tabStyles = {
 }
 
 
-function mapStateToProps ({questions, authUser}){
+function mapStateToProps ({questions, authUser, clicked}){
   console.log("questions:", questions)
  const answered =  Object.keys(questions).filter(e => questions[e].optionOne.votes.includes(authUser)||
   questions[e].optionTwo.votes.includes(authUser)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
@@ -75,7 +86,8 @@ function mapStateToProps ({questions, authUser}){
    console.log(unanswered)
   return {
      answered,
-    unanswered
+    unanswered,
+    clicked
 
   }
 
