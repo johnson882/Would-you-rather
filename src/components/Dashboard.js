@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Question from './Question'
+import QuestionHome from './QuestionHome'
 import {Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css';
 
@@ -44,8 +45,8 @@ const tabStyles = {
                 {
                   this.props.unanswered.map((id) => (
                  <li key={id}>
-                  <Question id={id}/>
-                 <button type="submit"> Answer Question</button>
+                  <QuestionHome id={id}/>
+                 
                  </li>
                 ))}
                 </ul>
