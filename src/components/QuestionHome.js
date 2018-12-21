@@ -1,51 +1,82 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {handleQuestionAnswer} from '../actions/questions'
+import { Redirect, Link } from 'react-router-dom'
 //import {AddQuestionUser} from '../actions/users'
 
 
 class QuestionHome extends Component {
   constructor(props) {
       super(props);
-      this.state = {id:this.props.id};
+
+      this.state = {id: props.id,
+      redirect: false,
+};
     }
 
 
   handleOptionChange = (changeE) =>{
-    console.log("Selected option: ",changeE.target.value)
+  //  console.log("Selected option: ",changeE.target.value)
+  /*
     this.setState({
       selectedOption: changeE.target.value
     }
-  )
+  ) */
   }
+
+
 
   handleQuestionA = (e) => {
     e.preventDefault()
 
-    const {dispatch, authUser, question} = this.props
+    const {id} = this.props
+
+    //console.log("arrived at submitted question", id);
+  //  console.log("here is the state:", this.state)
+
+    const redirectTrue = true;
+
+
+    this.setState({
+      id,
+      redirect: redirectTrue
+    }
+    )
 
     const vote = this.state.selectedOption;
 
-    console.log("you have selected Option: ", this.state.selectedOption)
-    console.log("question id, authUser and question Vote", question.id, authUser, vote)
+    //console.log("you have selected Option: ", this.state.selectedOption)
+    //console.log("question id, authUser and question Vote", question.id, authUser, vote)
 
 
-
+/*
    dispatch(handleQuestionAnswer({
       id: question.id,
       authUser,
       vote
     }))
+    */
   }
 
   render(){
   //  const { Quesion } = this.props
+  const { id, redirect} = this.state
+
 
 
     const{
-      author, id, optionOne, optionTwo, timestamp
+      authUser,  optionOne, optionTwo, timestamp
     } = this.props.question
-    console.log(optionOne)
+
+
+
+
+    if(redirect === true){
+      console.log("here is the iD:",id)
+      return(
+      <Redirect to={{pathname:`/question/:${id}`, state: {id}}} />
+       )
+    }
 
     //console.log(optionOne)
     //console.log(optionOne)
@@ -57,7 +88,7 @@ class QuestionHome extends Component {
     <br/>
     <button type="submit">  View Question </button>
     <br/>
-    by: {author}
+
     <br/>
     <br/>
   </form>
@@ -67,11 +98,11 @@ class QuestionHome extends Component {
   }
 }
 
-function mapStateToProps({authUser, users, questions}, { id }){
+function mapStateToProps({authUser, users, questions, redirect}, {id}){
 
   const question = questions[id]
 
-  return({authUser, question,id})
+  return({authUser, question, id, redirect})
 }
 
 export default connect(mapStateToProps)(QuestionHome)

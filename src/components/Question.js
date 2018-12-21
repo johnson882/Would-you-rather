@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+
+
 import {handleQuestionAnswer} from '../actions/questions'
 //import {AddQuestionUser} from '../actions/users'
 
@@ -7,7 +9,8 @@ import {handleQuestionAnswer} from '../actions/questions'
 class Question extends Component {
   constructor(props) {
       super(props);
-      this.state = {};
+      //console.log("here is the props:", props)
+
     }
 
 
@@ -41,7 +44,7 @@ class Question extends Component {
   render(){
   //  const { Quesion } = this.props
 
-
+  console.log("made it to props", this.props)
     const{
       author, id, optionOne, optionTwo, timestamp
     } = this.props.question
@@ -57,7 +60,7 @@ class Question extends Component {
     <br/>
     <button type="submit">Submit</button>
     <br/>
-    by: {author}
+
     <br/>
     <br/>
   </form>
@@ -67,11 +70,13 @@ class Question extends Component {
   }
 }
 
-function mapStateToProps({authUser, users, questions}, { id }){
+function mapStateToProps({authUser, users, questions}, props){
 
-  const question = questions[id]
 
-  return({authUser, question})
+  const question = questions[props.location.state.id]
+  console.log("map state to props:", props)
+  const id = props.location.state.id
+  return({authUser, question, id})
 }
 
 export default connect(mapStateToProps)(Question)

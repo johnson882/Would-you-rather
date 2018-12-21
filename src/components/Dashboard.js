@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Question from './Question'
 import QuestionHome from './QuestionHome'
 import {Tab, Tabs, TabList, TabPanel } from 'react-tabs'
@@ -17,7 +18,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log(this.props.questionIds)
+    //console.log(this.props.questionIds)
 const tabStyles = {
 
  border: "none",
@@ -46,7 +47,9 @@ const tabStyles = {
                   this.props.unanswered.map((id) => (
                  <li key={id}>
                   <QuestionHome id={id}/>
-                 
+
+
+
                  </li>
                 ))}
                 </ul>
@@ -56,7 +59,7 @@ const tabStyles = {
              {
                this.props.answered.map((id) => (
               <li key={id}>
-              <Question id={id} />
+              <QuestionHome id={id} />
               </li>
              ))}
                 </ul>
