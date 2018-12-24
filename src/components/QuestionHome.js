@@ -84,7 +84,7 @@ class QuestionHome extends Component {
 
 <div className = 'question'>
   <form onSubmit={this.handleQuestionA}>
-    <span>Question: {this.props.question.optionOne.text}</span>
+    <span>Question: {this.props.question.optionOne.text}...</span>
     <br/>
     <button type="submit">  View Question </button>
     <br/>

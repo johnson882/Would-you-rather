@@ -10,11 +10,13 @@ import Loggin from './Loggin'
 import Loggout from './Loggout'
 import Question from './Question'
 import QuestionHome from './QuestionHome'
+import Leaderboard from './Leaderboard'
 
 class App extends Component {
   componentDidMount(){
     this.props.dispatch(handleInitialData())
   }
+
   render() {
     return (
       <Router>
@@ -32,6 +34,8 @@ class App extends Component {
          <Route path='/new' exact component={NewQuestion} />
          <Route path='/loggout' exact component={Loggout} />
          <Route path='/question/:id'  component={Question} />
+         <Route path='/leaderboard'  component={Leaderboard}/>
+
 
         </div>
          }
