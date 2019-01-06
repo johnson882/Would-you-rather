@@ -1,4 +1,5 @@
 import {saveQuestionAnswer} from '../utils/api'
+//import {save_question_answer_user} from './users'
 //import {AddQuestionUser} from './users'
 
 export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
@@ -51,6 +52,5 @@ export function handleQuestionAnswer(info){
       dispatch(save_question_answer(info))
       alert('there was an error answering the question, try again')
     })
-
   }
 }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 
 import {handleQuestionAnswer} from '../actions/questions'
+//import {save_question_answer_user} from '../actions/users'
 //import {AddQuestionUser} from '../actions/users'
 
 
@@ -38,7 +39,13 @@ class Question extends Component {
       id: question.id,
       authUser,
       vote
-    }))
+    })) /*
+
+    dispatch(save_question_answer_user({
+      id: question.id,
+      authUser,
+    })
+  ) */
   }
 
   render(){

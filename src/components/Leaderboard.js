@@ -6,14 +6,17 @@ import LeaderboardBox from './LeaderboardBox'
 class Leaderboard extends Component{
   constructor(props) {
       super(props);
-      //console.log("here is the props:", props)
+      console.log("here is the props:", this.props)
+      console.log("here is the state:", this.state)
     }
+
+
 
   render(){
     return(
     <div>
-      leaderboard
-      <LeaderboardBox/>
+
+      <LeaderboardBox />
     </div>
     )
   }
@@ -21,8 +24,24 @@ class Leaderboard extends Component{
 
 }
 
-function mapStateToProps({users}){
 
-
+function getTotal(user) {
+  const answers = Object.keys(user.answers).length
+  const asked = Object.keys(user.questions).length
+  const total = answers + asked
+  return (answers)
 }
-export default connect()(Leaderboard)
+
+
+
+function mapStateToProps({users}){
+  console.log("here is the mapState:", users)
+  const userLeaderSorted = Object.keys(users)
+  console.log("here is the question key:", userLeaderSorted)
+  console.log(getTotal(users.tylermcginnis))
+
+
+return({users})
+}
+
+export default connect(mapStateToProps)(Leaderboard)

@@ -1,4 +1,4 @@
-import { RECEIVE_USERS,
+import { RECEIVE_USERS, SAVE_QUESTION_ANSWER_USER
 } from "../actions/users"
 //import {AddQuestionUser} from '../actions/questions'
 
@@ -12,7 +12,7 @@ export default function users (state = {}, action){
         ...action.users
       }
     case 'ADD_QUESTION_USER':
-    console.log("action:", action.question.author)
+    console.log("action:", action.question.id)
       return {
         ...state,
         [action.question.author]: {
@@ -23,6 +23,8 @@ export default function users (state = {}, action){
 
 
       }
+      case 'SAVE_QUESTION_ANSWER_USER':
+      return{}
 
 
       default :

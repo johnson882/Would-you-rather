@@ -38,3 +38,9 @@ export function handleAddQuestion(question){
     })
   }
 }
+
+export function handleAnswerQuestion(info){
+  return (dispatch) => {
+    return
+  }
+}
