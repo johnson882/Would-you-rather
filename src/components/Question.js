@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import {handleQuestionAnswer} from '../actions/questions'
 //import {save_question_answer_user} from '../actions/users'
 //import {AddQuestionUser} from '../actions/users'
-
+import {handleAnswerQuestionUser} from '../actions/shared'
 
 class Question extends Component {
   constructor(props) {
@@ -30,12 +30,12 @@ class Question extends Component {
 
     const vote = this.state.selectedOption;
 
-    console.log("you have selected Option: ", this.state.selectedOption)
+    //console.log("you have selected Option: ", this.state.selectedOption)
     console.log("question id, authUser and question Vote", question.id, authUser, vote)
 
 
 
-   dispatch(handleQuestionAnswer({
+   dispatch(handleAnswerQuestionUser({
       id: question.id,
       authUser,
       vote

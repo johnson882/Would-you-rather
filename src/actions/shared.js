@@ -1,5 +1,5 @@
 import { getInitialData,saveQuesions } from '../utils/api'
-import { receiveUsers, AddQuestionUser } from '../actions/users'
+import { receiveUsers, AddQuestionUser, save_question_answer_user } from '../actions/users'
 import { receiveQuestions, addQuestion } from '../actions/questions'
 import {setAuthUser} from '../actions/authorizedUser'
 
@@ -39,8 +39,11 @@ export function handleAddQuestion(question){
   }
 }
 
-export function handleAnswerQuestion(info){
+export function handleAnswerQuestionUser({ authUser, id, vote}){
+
   return (dispatch) => {
-    return
+
+    console.log("made it to handleAddQuestionUser", authUser, id, vote)
+    dispatch(save_question_answer_user({authUser, id, vote}))
   }
 }

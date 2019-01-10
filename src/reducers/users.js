@@ -4,7 +4,7 @@ import { RECEIVE_USERS, SAVE_QUESTION_ANSWER_USER
 
 
 export default function users (state = {}, action){
-    console.log(action.type)
+    console.log("made it to reducer users",action.type)
   switch(action.type){
     case RECEIVE_USERS :
       return {
@@ -24,7 +24,15 @@ export default function users (state = {}, action){
 
       }
       case 'SAVE_QUESTION_ANSWER_USER':
-      return{}
+      console.log("reached user reducer, action:", action.id, action.vote)
+      
+      return{
+        ...state,
+        [action.authUser]: {
+          ...state[action.authUser], answers: {...state[action.authUser].answers,[action.id]:action.vote}
+
+        }
+      }
 
 
       default :

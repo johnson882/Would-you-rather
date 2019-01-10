@@ -17,11 +17,12 @@ export function AddQuestionUser (question) {
   }
 }
 
-export function save_question_answer_user({ authUser, id }){
-  //console.log('Test save question answer user:', id, authUser,)
+export function save_question_answer_user({ authUser, id, vote}){
+  console.log('Test save question answer user:', id, authUser, vote)
   return{
     type: SAVE_QUESTION_ANSWER_USER,
     authUser,
-    id
+    id,
+    vote
   }
 }
