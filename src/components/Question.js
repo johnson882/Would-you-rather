@@ -31,7 +31,7 @@ class Question extends Component {
     const vote = this.state.selectedOption;
 
     //console.log("you have selected Option: ", this.state.selectedOption)
-    console.log("question id, authUser and question Vote", question.id, authUser, vote)
+    console.log("question id, authUser and question Vote", question, authUser, vote)
 
 
 
@@ -39,19 +39,21 @@ class Question extends Component {
       id: question.id,
       authUser,
       vote
-    })) /*
+    }))
 
-    dispatch(save_question_answer_user({
+    dispatch(handleQuestionAnswer({
+      question,
       id: question.id,
       authUser,
+      vote
     })
-  ) */
+  )
   }
 
   render(){
   //  const { Quesion } = this.props
 
-  console.log("made it to props", this.props)
+  console.log("made it to props", this.props.question)
     const{
       author, id, optionOne, optionTwo, timestamp
     } = this.props.question
@@ -61,9 +63,11 @@ class Question extends Component {
     return(
 
 <div className = 'question'>
+{console.log("option Test1:", optionOne.text)}
   <form onSubmit={this.handleQuestionA}>
     <span>Question: {optionOne.text}?<input type="radio" name={id} value={'optionOne'} onChange={this.handleOptionChange}></input> or {optionTwo.text}?
       <input type="radio" name={id} value={'optionTwo'} onChange={this.handleOptionChange}></input></span>
+      {console.log("option Test2:", optionOne.text)}
     <br/>
     <button type="submit">Submit</button>
     <br/>
