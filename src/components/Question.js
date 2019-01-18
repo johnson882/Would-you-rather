@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-
+import { Redirect, Link } from 'react-router-dom'
 
 import {handleQuestionAnswer} from '../actions/questions'
 //import {save_question_answer_user} from '../actions/users'
@@ -11,12 +11,16 @@ class Question extends Component {
   constructor(props) {
       super(props);
       //console.log("here is the props:", props)
+      const{
+        author, id, optionOne, optionTwo, timestamp,
+      } = this.props.question
+      this.state = {author, id, optionOne, optionTwo, timestamp, redirect: false}
 
     }
 
 
   handleOptionChange = (changeE) =>{
-    console.log("Selected option: ",changeE.target.value)
+
     this.setState({
       selectedOption: changeE.target.value
     }
@@ -30,44 +34,46 @@ class Question extends Component {
 
     const vote = this.state.selectedOption;
 
-    //console.log("you have selected Option: ", this.state.selectedOption)
-    console.log("question id, authUser and question Vote", question, authUser, vote)
 
 
 
    dispatch(handleAnswerQuestionUser({
+
       id: question.id,
       authUser,
       vote
     }))
 
+
     dispatch(handleQuestionAnswer({
-      question,
+
       id: question.id,
       authUser,
       vote
     })
+
   )
+
+this.setState({redirect: true})
   }
 
   render(){
   //  const { Quesion } = this.props
+  if(this.state.redirect === true){
 
-  console.log("made it to props", this.props.question)
-    const{
-      author, id, optionOne, optionTwo, timestamp
-    } = this.props.question
+    return(
+    <Redirect to={{pathname:'/'}}/>
+     )
+  }
+
 
     //console.log(optionOne)
     //console.log(optionOne)
     return(
-
 <div className = 'question'>
-{console.log("option Test1:", optionOne.text)}
   <form onSubmit={this.handleQuestionA}>
-    <span>Question: {optionOne.text}?<input type="radio" name={id} value={'optionOne'} onChange={this.handleOptionChange}></input> or {optionTwo.text}?
-      <input type="radio" name={id} value={'optionTwo'} onChange={this.handleOptionChange}></input></span>
-      {console.log("option Test2:", optionOne.text)}
+    <span>Question: {this.state.optionOne.text}?<input type="radio" name={this.state.id} value={'optionOne'} onChange={this.handleOptionChange}></input> or {this.state.optionTwo.text}?
+      <input type="radio" name={this.state.id} value={'optionTwo'} onChange={this.handleOptionChange}></input></span>
     <br/>
     <button type="submit">Submit</button>
     <br/>
@@ -75,8 +81,8 @@ class Question extends Component {
     <br/>
     <br/>
   </form>
-</div>
 
+</div>
     )
   }
 }
@@ -85,7 +91,7 @@ function mapStateToProps({authUser, users, questions}, props){
 
 
   const question = questions[props.location.state.id]
-  console.log("map state to props:", props)
+
   const id = props.location.state.id
   return({authUser, question, id})
 }

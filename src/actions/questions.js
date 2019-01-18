@@ -25,7 +25,7 @@ export function addQuestion(question){
   }
 }
 
-export function save_question_answer({ authUser, id, vote }){
+export function save_question_answer({ authUser, id, vote, questionCopy }){
   console.log('Test:', id, authUser, vote)
 
   return{

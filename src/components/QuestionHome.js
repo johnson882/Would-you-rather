@@ -8,21 +8,13 @@ import { Redirect, Link } from 'react-router-dom'
 class QuestionHome extends Component {
   constructor(props) {
       super(props);
-
-      this.state = {id: props.id,
+      this.state = {id: props.id, question: props.question,
       redirect: false,
 };
     }
 
 
-  handleOptionChange = (changeE) =>{
-  //  console.log("Selected option: ",changeE.target.value)
-  /*
-    this.setState({
-      selectedOption: changeE.target.value
-    }
-  ) */
-  }
+
 
 
 
@@ -49,13 +41,7 @@ class QuestionHome extends Component {
     //console.log("question id, authUser and question Vote", question.id, authUser, vote)
 
 
-/*
-   dispatch(handleQuestionAnswer({
-      id: question.id,
-      authUser,
-      vote
-    }))
-    */
+
   }
 
   render(){
@@ -63,11 +49,11 @@ class QuestionHome extends Component {
   const { id, redirect} = this.state
 
 
-
-    const{
+/*
+    let {
       authUser,  optionOne, optionTwo, timestamp
     } = this.props.question
-
+*/
 
 
 
@@ -84,7 +70,7 @@ class QuestionHome extends Component {
 
 <div className = 'question'>
   <form onSubmit={this.handleQuestionA}>
-    <span>Question: {this.props.question.optionOne.text}...</span>
+    <span>Question: {this.state.question.optionOne.text}...</span>
     <br/>
     <button type="submit">  View Question </button>
     <br/>
