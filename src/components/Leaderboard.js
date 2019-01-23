@@ -16,7 +16,8 @@ class Leaderboard extends Component{
     return(
     <div>
 
-      <LeaderboardBox />
+    {Object.keys(this.props.users).map((user) => ( <LeaderboardBox user={user} key={user}/>))}
+
     </div>
     )
   }

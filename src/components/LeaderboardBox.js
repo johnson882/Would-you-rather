@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class LeaderboardBox extends Component{
   constructor(props) {
       super(props);
-      console.log(props)
+      console.log(this.props)
       //console.log("here is the props:", props)
     }
 
@@ -31,8 +31,8 @@ class LeaderboardBox extends Component{
 
 }
 
-function mapStateToProps({users}){
-
-
+function mapStateToProps({users}, props){
+   let aUsers = users[props.user]
+   return(props)
 }
-export default connect()(LeaderboardBox)
+export default connect(mapStateToProps)(LeaderboardBox)
