@@ -12,7 +12,7 @@ class LeaderboardBox extends Component{
     return(
     <div>
     <br/>
-      LeaderboardBox
+      LeaderboardBox {this.props.user}
       <br/>
       <br/>
 
@@ -33,6 +33,13 @@ class LeaderboardBox extends Component{
 
 function mapStateToProps({users}, props){
    let aUsers = users[props.user]
-   return(props)
+   let answerTotal = Object.keys(aUsers.answers).length;
+   let questionTotal = Object.keys(aUsers.questions).length;
+   //console.log("aUsers: ", aUsers)
+   //console.log("answerTotal: ", answerTotal)
+   //console.log("questionTotal: ", questionTotal)
+
+
+   return(aUsers)
 }
 export default connect(mapStateToProps)(LeaderboardBox)
