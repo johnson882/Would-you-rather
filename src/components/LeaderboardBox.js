@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class LeaderboardBox extends Component{
   constructor(props) {
       super(props);
-      console.log(this.props)
+      //console.log(this.props)
       //console.log("here is the props:", props)
     }
 
@@ -12,16 +12,16 @@ class LeaderboardBox extends Component{
     return(
     <div>
     <br/>
-      LeaderboardBox {this.props.user}
+
       <br/>
       <br/>
 
-      user
+      user: {this.props.user}
       <br/>
       <br/>
-      questions asked:
+      Total questions asked:
       <br/>
-      questions answered:
+      Total questions answered:
       <br/>
 
     </div>

@@ -6,8 +6,8 @@ import LeaderboardBox from './LeaderboardBox'
 class Leaderboard extends Component{
   constructor(props) {
       super(props);
-      console.log("here is the props:", this.props)
-      console.log("here is the state:", this.state)
+      //console.log("here is the props:", this.props)
+      //console.log("here is the state:", this.state)
     }
 
 
@@ -37,8 +37,8 @@ function getTotal(user) {
 
 function mapStateToProps({users}){
   console.log("here is the mapState:", users)
-  const userLeaderSorted = Object.keys(users)
-  console.log("here is the question key:", userLeaderSorted)
+  const userLead = Object.keys(users)
+  //console.log("here is the question key:", userLeaderSorted)
   console.log(getTotal(users.tylermcginnis))
 
 
