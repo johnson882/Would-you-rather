@@ -19,9 +19,11 @@ class LeaderboardBox extends Component{
       user: {this.props.user}
       <br/>
       <br/>
-      Total questions asked:
+      Total questions asked:{this.props.question}
       <br/>
-      Total questions answered:
+      Total answered: {this.props.answer}
+      <br/>
+      Total: {this.props.total}
       <br/>
 
     </div>

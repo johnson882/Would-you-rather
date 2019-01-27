@@ -13,10 +13,14 @@ class Leaderboard extends Component{
 
 
   render(){
+
+
     return(
     <div>
 
-    {//Object.keys(this.props.use).map((user) => ( <LeaderboardBox user={user} key={user}/>))
+    {
+      this.props.usersArray.map((user) => ( <LeaderboardBox user={user[0]} question = {user[1]} answer = {user[2]} total={user[3]}key={user[0]}/>))
+      //Object.keys(this.props.use).map((user) => ( <LeaderboardBox user={user} key={user}/>))
   }
 
     </div>
@@ -26,6 +30,11 @@ class Leaderboard extends Component{
 
 }
 
+function Comparator(a, b) {
+if (a[3] > b[3]) return -1;
+if (a[3] < b[3]) return 1;
+return 0;
+}
 
 function getTotal(user) {
   const answers = Object.keys(user).length
@@ -37,37 +46,27 @@ function getTotal(user) {
 
 
 function mapStateToProps({users}){
-  console.log("here is the mapState:", users)
-  const newObject  = {}
-  const newObjectofObject = {}
+
+  const usersArray = []
 
   Object.entries(users).forEach(
     ([key, value]) => {
 
+      const questions = value.questions.length
+      const answers = getTotal(value.answers)
+      const total = questions + answers;
 
-    let questions = value.questions.length
-    let answers = getTotal(value.answers)
-    let total = questions + answers;
 
-    newObjectofObject[key] = key
     var arr = []
-    arr = [questions, answers, total]
-    newObjectofObject[key]= arr
-  //  newObjectofObject["answers"] = answers
-    //newObjectofObject["total"] = questions + answers
-    console.log(newObjectofObject)
 
-  //  newObject["hi"] =  hi
+    arr = [key, questions, answers, total]
+    usersArray.push(arr)
+
 }
 );
-console.log("newObject: ",newObject)
-  //console.log(newObject)
-//  const userLead = Object.keys(users)
-  //console.log("here is the question key:", userLead)
-  //console.log(getTotal(users.tylermcginnis))
 
-
-return({newObjectofObject})
+usersArray.sort(Comparator)
+return({usersArray})
 }
 
 export default connect(mapStateToProps)(Leaderboard)
