@@ -6,7 +6,7 @@ import LeaderboardBox from './LeaderboardBox'
 class Leaderboard extends Component{
   constructor(props) {
       super(props);
-      //console.log("here is the props:", this.props)
+      console.log("here is the props:", this.props)
       //console.log("here is the state:", this.state)
     }
 
@@ -16,7 +16,8 @@ class Leaderboard extends Component{
     return(
     <div>
 
-    {Object.keys(this.props.users).map((user) => ( <LeaderboardBox user={user} key={user}/>))}
+    {//Object.keys(this.props.use).map((user) => ( <LeaderboardBox user={user} key={user}/>))
+  }
 
     </div>
     )
@@ -27,9 +28,9 @@ class Leaderboard extends Component{
 
 
 function getTotal(user) {
-  const answers = Object.keys(user.answers).length
-  const asked = Object.keys(user.questions).length
-  const total = answers + asked
+  const answers = Object.keys(user).length
+  //const asked = Object.keys(user.questions).length
+  const total = answers
   return (answers)
 }
 
@@ -37,12 +38,36 @@ function getTotal(user) {
 
 function mapStateToProps({users}){
   console.log("here is the mapState:", users)
-  const userLead = Object.keys(users)
-  //console.log("here is the question key:", userLeaderSorted)
-  console.log(getTotal(users.tylermcginnis))
+  const newObject  = {}
+  const newObjectofObject = {}
+
+  Object.entries(users).forEach(
+    ([key, value]) => {
 
 
-return({users})
+    let questions = value.questions.length
+    let answers = getTotal(value.answers)
+    let total = questions + answers;
+
+    newObjectofObject[key] = key
+    var arr = []
+    arr = [questions, answers, total]
+    newObjectofObject[key]= arr
+  //  newObjectofObject["answers"] = answers
+    //newObjectofObject["total"] = questions + answers
+    console.log(newObjectofObject)
+
+  //  newObject["hi"] =  hi
+}
+);
+console.log("newObject: ",newObject)
+  //console.log(newObject)
+//  const userLead = Object.keys(users)
+  //console.log("here is the question key:", userLead)
+  //console.log(getTotal(users.tylermcginnis))
+
+
+return({newObjectofObject})
 }
 
 export default connect(mapStateToProps)(Leaderboard)
