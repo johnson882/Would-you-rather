@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { Redirect, Link } from 'react-router-dom'
+import BarChart from 'react-bar-chart';
+
 
 import {handleQuestionAnswer} from '../actions/questions'
 //import {save_question_answer_user} from '../actions/users'
@@ -10,12 +12,20 @@ import {handleAnswerQuestionUser} from '../actions/shared'
 class Question extends Component {
   constructor(props) {
       super(props);
+
       console.log("here is the props:", this.props)
       const{
         author, id, optionOne, optionTwo, timestamp,
       } = this.props.question
+        this.optionOneText = ""
+        this.optionTwoText = ""
+
+    //  let BarChart = ReactD3.BarChart;
+    //var BarChart = require('react-d3-components').BarChart;
+
       this.state = {author, id, optionOne, optionTwo, timestamp, redirect: false}
 
+      //this.state = {optionOneText: this.state.OptionOne.text}
     }
   //  console.log("is state answered?", this.props.answered)
 
@@ -60,14 +70,25 @@ this.setState({redirect: true})
 
   render(){
   //  const { Quesion } = this.props
+ //let optionOneText =  this.state.OptionOne.text
   if(this.props.answered == true)
   {
+     this.optionOneText =  this.state.optionOne.text
+     this.optionTwoText = this.state.optionTwo.text
     return(
-      <div>
-    <p> OptionOne: {this.props.optionOnePercent}%</p>
-    <br/>
-    <p>OptionTwo:{this.props.optionTwoPercent}%</p>
 
+      <div>
+
+
+<BarChart ylabel='Percent'
+                  width={800}
+                  height={400}
+                  margin={{top: 20, right: 20, bottom: 30, left: 40}}
+                  data={[
+                  {text: this.optionOneText , value: this.props.optionOnePercent},
+                  {text: this.optionTwoText, value: this.props.optionTwoPercent}
+                  ]}/>
+    
     <br/>
 
 
