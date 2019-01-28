@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Question from './Question'
+
 import QuestionHome from './QuestionHome'
 import {Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css';
@@ -78,16 +77,16 @@ const tabStyles = {
 
 
 function mapStateToProps ({questions, authUser, clicked}){
-  console.log("questions:", questions)
+
  const answered =  Object.keys(questions).filter(e => questions[e].optionOne.votes.includes(authUser)||
   questions[e].optionTwo.votes.includes(authUser)).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
 
-  console.log("questions after: filter", questions)
+
 
   const unanswered = Object.keys(questions).filter(e => !answered.includes(e)).sort((a,b) => questions[b].timestamp
   - questions[a].timestamp)
 
-   console.log(unanswered)
+
   return {
      answered,
     unanswered,

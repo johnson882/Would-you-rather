@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import {handleQuestionAnswer} from '../actions/questions'
-import { Redirect, Link } from 'react-router-dom'
+
+import { Redirect } from 'react-router-dom'
 //import {AddQuestionUser} from '../actions/users'
 
 
@@ -35,7 +35,7 @@ class QuestionHome extends Component {
     }
     )
 
-    const vote = this.state.selectedOption;
+    
 
     //console.log("you have selected Option: ", this.state.selectedOption)
     //console.log("question id, authUser and question Vote", question.id, authUser, vote)
@@ -58,7 +58,7 @@ class QuestionHome extends Component {
 
 
     if(redirect === true){
-      console.log("here is the iD:",id)
+
       return(
       <Redirect to={{pathname:`/question/:${id}`, state: {id}}} />
        )

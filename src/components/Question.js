@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect} from 'react-router-dom'
 import BarChart from 'react-bar-chart';
 
 
@@ -13,7 +13,7 @@ class Question extends Component {
   constructor(props) {
       super(props);
 
-      console.log("here is the props:", this.props)
+
       const{
         author, id, optionOne, optionTwo, timestamp,
       } = this.props.question
@@ -71,7 +71,7 @@ this.setState({redirect: true})
   render(){
   //  const { Quesion } = this.props
  //let optionOneText =  this.state.OptionOne.text
-  if(this.props.answered == true)
+  if(this.props.answered === true)
   {
      this.optionOneText =  this.state.optionOne.text
      this.optionTwoText = this.state.optionTwo.text
@@ -88,7 +88,7 @@ this.setState({redirect: true})
                   {text: this.optionOneText , value: this.props.optionOnePercent},
                   {text: this.optionTwoText, value: this.props.optionTwoPercent}
                   ]}/>
-    
+
     <br/>
 
 
@@ -108,7 +108,7 @@ this.setState({redirect: true})
 
     //console.log(optionOne)
     //console.log(optionOne)
-    if(this.props.answered == false)
+    if(this.props.answered === false)
     {
       return(
     <div className = 'question'>
@@ -135,7 +135,7 @@ function mapStateToProps({authUser, users, questions}, props){
 
 
   const question = questions[props.location.state.id]
-console.log("question:", question)
+
   let answered = false;
   const id = props.location.state.id
   let optionOne = 0
@@ -147,9 +147,7 @@ console.log("question:", question)
   {
     optionOne = question.optionOne.votes.length
     optionTwo =  question.optionTwo.votes.length
-    console.log("Contains!")
-    console.log("votes in optionOne:", optionOne)
-    console.log("votes in optionTwo:", optionTwo)
+
   answered = true;
 
 
@@ -161,8 +159,7 @@ console.log("question:", question)
     optionOnePercent = Math.round(optionOnePercent )
     optionTwoPercent = Math.round(optionTwoPercent )
   }
-    console.log("optionOnePercent:", optionOnePercent)
-    console.log("optionTwoPercent:", optionTwoPercent)
+
 
 
 

@@ -33,9 +33,9 @@ handleSubmit = (e) => {
     e.preventDefault()
      const { optionOne, optionTwo } = this.state
      const {dispatch, authedUser} = this.props
-     console.log(authedUser)
+
      // todo: Add Tweet to Store
-     console.log('New Question: OptionOne: ', optionOne, 'OptionTwo: ', optionTwo)
+     
      dispatch(handleAddQuestion({optionOne, optionTwo, authedUser}))
 
      this.setState(() => ({
@@ -43,7 +43,7 @@ handleSubmit = (e) => {
       optionTwo,
       toHome: true,
     }))
-    console.log(this.state)
+
   }
 
 render() {

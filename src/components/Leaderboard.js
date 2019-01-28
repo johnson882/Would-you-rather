@@ -4,11 +4,7 @@ import { connect } from 'react-redux'
 import LeaderboardBox from './LeaderboardBox'
 
 class Leaderboard extends Component{
-  constructor(props) {
-      super(props);
-      console.log("here is the props:", this.props)
-      //console.log("here is the state:", this.state)
-    }
+
 
 
 
@@ -20,7 +16,7 @@ class Leaderboard extends Component{
 
     {
       this.props.usersArray.map((user) => ( <LeaderboardBox user={user[0]} question = {user[1]} answer = {user[2]} total={user[3]}key={user[0]}/>))
-      //Object.keys(this.props.use).map((user) => ( <LeaderboardBox user={user} key={user}/>))
+    
   }
 
     </div>
@@ -38,8 +34,7 @@ return 0;
 
 function getTotal(user) {
   const answers = Object.keys(user).length
-  //const asked = Object.keys(user.questions).length
-  const total = answers
+
   return (answers)
 }
 

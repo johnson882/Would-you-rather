@@ -12,7 +12,7 @@ class Loggin extends Component{
 }
 
 handleOptionChange = (changeE) => {
-  console.log("Selected option: " , changeE.target.value)
+  
 
 const {dispatch} = this.props
 

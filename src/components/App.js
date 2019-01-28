@@ -9,7 +9,7 @@ import Navbar from './Navbar'
 import Loggin from './Loggin'
 import Loggout from './Loggout'
 import Question from './Question'
-import QuestionHome from './QuestionHome'
+//import QuestionHome from './QuestionHome'
 import Leaderboard from './Leaderboard'
 
 class App extends Component {
