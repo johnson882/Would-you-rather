@@ -15,13 +15,15 @@ import Leaderboard from './Leaderboard'
 class App extends Component {
   componentDidMount(){
     this.props.dispatch(handleInitialData())
+
   }
 
   render() {
+    console.log(this.props)
     return (
       <Router>
       <div className="App">
-{this.props.authUser}
+
 
 
         {this.props.authUser === null
@@ -29,7 +31,13 @@ class App extends Component {
 
         <div>
 
-         <Navbar />
+        <div id="name">
+         {this.props.user.name}
+         <img src={this.props.user.avatarURL} width="150px" height="100px" />
+         </div>
+        
+         <Navbar/>
+
          <Route path='/' exact component={Dashboard} />
          <Route path='/new' exact component={NewQuestion} />
          <Route path='/loggout' exact component={Loggout} />
@@ -46,11 +54,15 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({authUser, id})
+function mapStateToProps({authUser, id, users})
 {
+  console.log("the users:",users)
+  const user = users[authUser]
+  console.log("the user:", user)
   return{
     loading: authUser === null,
-    authUser
+    authUser,
+    user,
 
   }
 }

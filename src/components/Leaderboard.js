@@ -16,7 +16,6 @@ class Leaderboard extends Component{
 
     {
       this.props.usersArray.map((user) => ( <LeaderboardBox user={user[0]} question = {user[1]} answer = {user[2]} total={user[3]}key={user[0]}/>))
-    
   }
 
     </div>
