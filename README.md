@@ -6,9 +6,9 @@
   <img src="https://cdn-images-1.medium.com/max/800/1*VeM-5lsAtrrJ4jXH96h5kg.png" width="250" title="hover text"> <h1>Would You Rather</h1>
 </p>
 
-This app asks a user questions and returns a percentage of answers from all users.
+React + Redux app asks a user questions and returns a percentage of answers from all users.
 
-## Node
+## Getting Started
 
 [Node](http://nodejs.org/) is really easy to install & now include [NPM](https://npmjs.org/).
 You should be able to run the following command after the installation procedure
