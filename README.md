@@ -7,6 +7,7 @@
 </p>
 
 React + Redux app asks a user questions and returns a percentage of answers from all users.
+User can also create new questions and a leaderboard shows which user has answered and created the most questions.
 
 ## Getting Started
 
