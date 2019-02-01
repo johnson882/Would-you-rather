@@ -1,4 +1,9 @@
-![alt text](https://cdn-images-1.medium.com/max/800/1*VeM-5lsAtrrJ4jXH96h5kg.png)
+
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/800/1*VeM-5lsAtrrJ4jXH96h5kg.png" width="350" title="hover text">
+</p>
+
+
 ## Would you rather
 This app asks a user questions and returns a percentage of answers from all users.
 
