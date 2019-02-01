@@ -1,5 +1,5 @@
 
- <h1>Would You Rather</hi>
+ <h1>Would You Rather</h1>
 <p align="center">
  
   
