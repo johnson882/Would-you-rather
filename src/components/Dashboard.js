@@ -15,7 +15,7 @@ class Dashboard extends Component {
       clicked: text
     }))
   }
-
+ 
   render() {
     //console.log(this.props.questionIds)
 const tabStyles = {
