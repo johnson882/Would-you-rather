@@ -1,7 +1,8 @@
 
-
+ <h1>Would You Rather</hi>
 <p align="center">
-  <h1>Would You Rather</hi>
+ 
+  
   <img src="https://cdn-images-1.medium.com/max/800/1*VeM-5lsAtrrJ4jXH96h5kg.png" width="350" title="hover text">
 </p>
 
