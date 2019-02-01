@@ -35,7 +35,7 @@ handleSubmit = (e) => {
      const {dispatch, authedUser} = this.props
 
      // todo: Add Tweet to Store
-     
+
      dispatch(handleAddQuestion({optionOne, optionTwo, authedUser}))
 
      this.setState(() => ({
@@ -82,16 +82,10 @@ if (toHome === true) {
             disabled={optionOne === '' || optionTwo === ''}>
               Submit
           </button>
-
             </form>
     </div>
-
   )
-
-}
-
-
-
+  }
 }
 
 function mapStateToProps(state){
