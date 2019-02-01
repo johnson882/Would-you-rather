@@ -1,6 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Would you rather
+This app asks a user questions and returns a percentage of answers from all users.
 
 ## Available Scripts
 
