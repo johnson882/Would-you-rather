@@ -33,7 +33,7 @@ class App extends Component {
 
 
 
-                            {// eslint-disable-next-line
+                                {// eslint-disable-next-line
                             }    <img src={this.props.user.avatarURL} width="150px" height="100px" />
                             </div>
                             <Navbar/>
