@@ -24,9 +24,17 @@ class App extends Component {
                     {this.props.authUser === null
                         ?<Loggin/>:
                         <div>
+                            {// eslint-disable-next-line
+                      }
                             <div id="name">
+                                {// eslint-disable-next-line
+                            }
                                 {this.props.user.name}
-                                <img src={this.props.user.avatarURL} width="150px" height="100px" />
+
+
+
+                            {// eslint-disable-next-line
+                            }    <img src={this.props.user.avatarURL} width="150px" height="100px" />
                             </div>
                             <Navbar/>
                             <Route path='/' exact component={Dashboard} />
