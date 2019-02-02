@@ -9,6 +9,12 @@
 React + Redux app asks a user questions and returns a percentage of answers from all users.
 User can also create new questions and a leaderboard shows which user has answered and created the most questions.
 
+<img src="https://lh3.googleusercontent.com/SnssUn5BjyBIZXnzovaY2eZaWP-okbCyBAUSyKigTw_-j_BDsURfg2w2L0E7Du77WsA32siuWJ0SBOuDztwO94xo-bPv7pLmWlCYCN87FqDrd-2OcKzOCkKlXBWCU6R9fEkyRxsNNscS1tTJeECI69IymGm1i6_zEw_rjQfjleYG5oBLSZukBFctaRltUv5n20zvhieUt8CZx8r1p-ymr0r0UEnPVXp0syurcJgH4nI6qfgYhrVfRkDQLe6OfLYeRrrnjqtKLnNMUUEI2g8To2lje-aU_orjUkL2aMKfwiElvgaepbCNgOekcFPlXQ8YzZw92MDZSck5Qdk9KJyGDdHeR3WXaVZSiDPYRUqSk2K0Th4AvytwYvqGVNAUSHLO0lVYFABRy7myLZ6qdqPdaSCKtZ1vTfWtqIWqlqcEFM5xTDSjxGAy6Jcj9mkE0SL6fefbV4JLLdzQ5rGTpl-InKU0rqW4eLEwZ12aEKDOBxbYU0Esc3YB1LBTdk6fcp2dFN27vEe09CFPUdP3L6iQNhZOQfYOBoZ5lVUkiRdlvu2kLExz3kTSEDaHKCALzJDFtR86DQXRT7YuhopboCzVkMHUvasftH6cQt29wY8faeEOW7Wu2M-3pl56bIi1xkwmSH2GpA_poJRw4JSoP_D6W4xqwSQ2r4PD-c5FJIjLv4yO4RUiWKpbAqU5ikwe2D-SHAVryxnrAQECF5O9tA=w1331-h689-no" width="950" height= "430" title="hover text">
+
+
+## Udacity
+This project is the 2nd project of the react nanoprogram.
+
 ## Getting Started
 
 [Node](http://nodejs.org/) is really easy to install & now include [NPM](https://npmjs.org/).
