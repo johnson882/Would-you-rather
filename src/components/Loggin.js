@@ -12,16 +12,13 @@ class Loggin extends Component{
 }
 
 handleOptionChange = (changeE) => {
-  
+
 
 const {dispatch} = this.props
 
 dispatch(handleChangeAuth(
  changeE.target.value
 ))
-
-
-
 }
 
   render(){
@@ -35,12 +32,10 @@ dispatch(handleChangeAuth(
       <option value="tylermcginnis">Tyler McGinnis</option>
       <option value="sarahedo">Sarah Edo</option>
       <option value="johndoe">John Doe</option>
-
     </select>
       </div>
     )
   }
-
 
 }
 

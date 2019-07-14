@@ -105,9 +105,6 @@ this.setState({redirect: true})
      )
   }
 
-
-    //console.log(optionOne)
-    //console.log(optionOne)
     if(this.props.answered === false)
     {
       return(
@@ -126,16 +123,13 @@ this.setState({redirect: true})
     </div>
       )
 
-    }
-
+     }
   }
 }
 
 function mapStateToProps({authUser, users, questions}, props){
 
-
   const question = questions[props.location.state.id]
-
   let answered = false;
   const id = props.location.state.id
   let optionOne = 0
@@ -143,25 +137,18 @@ function mapStateToProps({authUser, users, questions}, props){
   let total = 0
   let optionOnePercent = 0
   let optionTwoPercent = 0
+
   if(question.optionOne.votes.includes(authUser) || question.optionTwo.votes.includes(authUser))
   {
     optionOne = question.optionOne.votes.length
     optionTwo =  question.optionTwo.votes.length
-
-  answered = true;
-
-
+    answered = true;
     total  = optionOne + optionTwo
-
     optionOnePercent = (optionOne / total) * 100
     optionTwoPercent = (optionTwo / total) * 100
-
     optionOnePercent = Math.round(optionOnePercent )
     optionTwoPercent = Math.round(optionTwoPercent )
   }
-
-
-
 
   return({authUser, question, id, answered, optionOnePercent, optionTwoPercent})
 }

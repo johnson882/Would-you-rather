@@ -6,7 +6,7 @@ import {handleChangeAuth} from '../actions/shared'
 class Loggout extends Component{
 
 
-  componentDidMount =  ()  =>{
+  componentDidMount = ()  =>{
 
         const {dispatch} = this.props
         dispatch(handleChangeAuth(

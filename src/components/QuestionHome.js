@@ -14,10 +14,6 @@ class QuestionHome extends Component {
     }
 
 
-
-
-
-
   handleQuestionA = (e) => {
     e.preventDefault()
 
@@ -34,13 +30,6 @@ class QuestionHome extends Component {
       redirect: redirectTrue
     }
     )
-
-    
-
-    //console.log("you have selected Option: ", this.state.selectedOption)
-    //console.log("question id, authUser and question Vote", question.id, authUser, vote)
-
-
 
   }
 
@@ -79,7 +68,6 @@ class QuestionHome extends Component {
     <br/>
   </form>
 </div>
-
     )
   }
 }
